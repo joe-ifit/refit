@@ -255,7 +255,7 @@ namespace Refit
 
                     if (restMethod.IsApiResponse)
                     {
-                        var body = await DeserializeContentAsync<TBody>(resp, content);
+                        var body = await DeserializeContentAsync<TBody>(resp, content).ConfigureAwait(false);
                         return ApiResponse.Create<T, TBody>(resp, body, e);
                     }
                     else if (e != null)
